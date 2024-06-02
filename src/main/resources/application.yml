@@ -1,0 +1,21 @@
+spring:
+  datasource:
+#    url: "jdbc:h2:mem:testdb"
+    url: "jdbc:h2:file:~/testdb"
+    driver-class-name: "org.h2.Driver"
+    username: "sa"
+#    password: "password"
+    password: ""
+
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+  profiles:
+    active: loadInitialData
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+

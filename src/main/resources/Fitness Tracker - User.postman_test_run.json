@@ -1,0 +1,341 @@
+{
+	"id": "e68f493f-b6af-45c1-bb7f-222cff1b5322",
+	"name": "Fitness Tracker - User",
+	"timestamp": "2024-06-02T20:55:15.333Z",
+	"collection_id": "35578429-23368afb-bf4d-4d46-b793-26b4223cc423",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 25,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-06-02T20:55:14.385Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "d76418f6-c917-41cf-b3dd-179c5cf6c174",
+			"name": "wylistowanie podstawowych informacji o wszystkich użytkownikach zapisanych w systemie (tylko ID oraz nazwa klienta)",
+			"url": "localhost:8080/v1/users",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required Content-Type header with value application/json": true,
+				"Validate the array structure with required fields - Id, firstName, and lastName": true,
+				"Id is a non-negative integer": true,
+				"FirstName and lastName must be non-empty strings": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required Content-Type header with value application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the array structure with required fields - Id, firstName, and lastName": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Id is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"FirstName and lastName must be non-empty strings": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required Content-Type header with value application/json": true,
+					"Validate the array structure with required fields - Id, firstName, and lastName": true,
+					"Id is a non-negative integer": true,
+					"FirstName and lastName must be non-empty strings": true
+				}
+			]
+		},
+		{
+			"id": "487e65e5-c160-402b-a687-6a38ed1b2bb2",
+			"name": "pobranie szczegółów dotyczących wybranego użytkownika (ID, imię, nazwisko, datę urodzenia, e-mail)",
+			"url": "localhost:8080/v1/users/1",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response Content-Type is application/json": true,
+				"Response status code is 200": true,
+				"Validate Id, firstName, lastName, birthdate, and email fields in the response": true,
+				"Birthdate is in a valid date format": true,
+				"Email is in a valid email format": true
+			},
+			"testPassFailCounts": {
+				"Response Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Id, firstName, lastName, birthdate, and email fields in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Birthdate is in a valid date format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Email is in a valid email format": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Response Content-Type is application/json": true,
+					"Response status code is 200": true,
+					"Validate Id, firstName, lastName, birthdate, and email fields in the response": true,
+					"Birthdate is in a valid date format": true,
+					"Email is in a valid email format": true
+				}
+			]
+		},
+		{
+			"id": "e8f276a9-2afd-49c6-8642-7a728ba1dd96",
+			"name": "utworzenie nowego użytkownika",
+			"url": "localhost:8080/v1/users",
+			"time": 12,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				12
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "29a2f664-261f-4de8-aa4a-db9b3add5665",
+			"name": "usunięcie użytkownika",
+			"url": "http://localhost:8080/v1/users/11",
+			"time": 14,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "55bc4f95-2c3a-4448-b4cd-73ba08efb9a1",
+			"name": "wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane tylko ID oraz e-mail użytkowników)",
+			"url": "localhost:8080/v1/users/email/LL",
+			"time": 17,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has a valid Content-Type header of application/json": true,
+				"Validate the structure of the response array": true,
+				"Id is a non-negative integer": true,
+				"Email is in a valid email format": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has a valid Content-Type header of application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the structure of the response array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Id is a non-negative integer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Email is in a valid email format": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has a valid Content-Type header of application/json": true,
+					"Validate the structure of the response array": true,
+					"Id is a non-negative integer": true,
+					"Email is in a valid email format": true
+				}
+			]
+		},
+		{
+			"id": "2667601c-7d97-440a-83af-7b8ef3691498",
+			"name": "wyszukiwanie użytkowników po wieku starszym niż zdefiniowany",
+			"url": "localhost:8080/v1/users/older-than/30",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required fields": true,
+				"Email is in a valid format": true,
+				"Birthdate is in a valid date format": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Email is in a valid format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Birthdate is in a valid date format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required fields": true,
+					"Email is in a valid format": true,
+					"Birthdate is in a valid date format": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "cb64f821-6f3f-49d9-8f6f-3c0c662ababd",
+			"name": "aktualizowanie użytkowników w systemie (dowolnie wybrany atrybut)",
+			"url": "http://localhost:8080/v1/users/10",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Content-Type header is application/json": true,
+				"Id field is present in the response": true,
+				"FirstName and LastName must be non-empty strings": true,
+				"Verify that birthdate is in a valid date format": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Id field is present in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"FirstName and LastName must be non-empty strings": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that birthdate is in a valid date format": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Content-Type header is application/json": true,
+					"Id field is present in the response": true,
+					"FirstName and LastName must be non-empty strings": true,
+					"Verify that birthdate is in a valid date format": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 95,
+	"collection": {
+		"requests": [
+			{
+				"id": "d76418f6-c917-41cf-b3dd-179c5cf6c174",
+				"method": "GET"
+			},
+			{
+				"id": "487e65e5-c160-402b-a687-6a38ed1b2bb2",
+				"method": "GET"
+			},
+			{
+				"id": "e8f276a9-2afd-49c6-8642-7a728ba1dd96",
+				"method": "POST"
+			},
+			{
+				"id": "29a2f664-261f-4de8-aa4a-db9b3add5665",
+				"method": "DELETE"
+			},
+			{
+				"id": "55bc4f95-2c3a-4448-b4cd-73ba08efb9a1",
+				"method": "GET"
+			},
+			{
+				"id": "2667601c-7d97-440a-83af-7b8ef3691498",
+				"method": "GET"
+			},
+			{
+				"id": "cb64f821-6f3f-49d9-8f6f-3c0c662ababd",
+				"method": "PUT"
+			}
+		]
+	}
+}
