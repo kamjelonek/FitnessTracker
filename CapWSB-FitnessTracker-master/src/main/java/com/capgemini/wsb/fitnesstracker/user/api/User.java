@@ -2,10 +2,7 @@ package com.capgemini.wsb.fitnesstracker.user.api;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -44,6 +41,27 @@ public class User {
         this.birthdate = birthdate;
         this.email = email;
     }
+
+    public void update(
+            final String firstName,
+            final String lastName,
+            final LocalDate birthdate,
+            final String email) {
+
+        if (firstName != null && !firstName.isBlank()) {
+            this.firstName = firstName;
+        }
+        if (lastName != null && !lastName.isBlank()) {
+            this.lastName = lastName;
+        }
+        if (birthdate != null) {
+            this.birthdate = birthdate;
+        }
+        if (email != null && !email.isBlank()) {
+            this.email = email;
+        }
+    }
+
 
 }
 

@@ -47,12 +47,55 @@ public class Training {
             final ActivityType activityType,
             final double distance,
             final double averageSpeed) {
+
         this.user = user;
         this.startTime = startTime;
         this.endTime = endTime;
         this.activityType = activityType;
         this.distance = distance;
         this.averageSpeed = averageSpeed;
+    }
+
+    public Training(
+            final Date startTime,
+            final Date endTime,
+            final ActivityType activityType,
+            final double distance,
+            final double averageSpeed) {
+
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.activityType = activityType;
+        this.distance = distance;
+        this.averageSpeed = averageSpeed;
+    }
+
+    public void update(
+            final User user,
+            final Date startTime,
+            final Date endTime,
+            final ActivityType activityType,
+            final double distance,
+            final double averageSpeed) {
+
+        if(user != null) {
+            this.user = user;
+        }
+        if (startTime != null) {
+            this.startTime = startTime;
+        }
+        if (endTime != null) {
+            this.endTime = endTime;
+        }
+        if (activityType != null) {
+            this.activityType = activityType;
+        }
+        if (distance > 0) {
+            this.distance = distance;
+        }
+        if (averageSpeed > 0) {
+            this.averageSpeed = averageSpeed;
+        }
     }
 
 }

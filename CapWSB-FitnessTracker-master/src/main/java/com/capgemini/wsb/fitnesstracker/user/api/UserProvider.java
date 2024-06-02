@@ -12,6 +12,10 @@ public interface UserProvider {
      * @param userId id of the user to be searched
      * @return An {@link Optional} containing the located user, or {@link Optional#empty()} if not found
      */
+
+    // https://www.baeldung.com/spring-data-jpa-query-by-date
+
+
     Optional<User> getUser(Long userId);
 
     /**
@@ -21,7 +25,7 @@ public interface UserProvider {
      * @param email The email of the user to be searched
      * @return An {@link Optional} containing the located user, or {@link Optional#empty()} if not found
      */
-    Optional<User> getUserByEmail(String email);
+    List<User> getUserByEmail(String email);
 
     /**
      * Retrieves all users.
@@ -29,5 +33,6 @@ public interface UserProvider {
      * @return An {@link Optional} containing the all users,
      */
     List<User> findAllUsers();
+    List<User> getUsersOlderThan(String age);
 
 }

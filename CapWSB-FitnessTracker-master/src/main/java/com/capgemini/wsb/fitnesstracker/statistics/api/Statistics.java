@@ -4,6 +4,7 @@ import com.capgemini.wsb.fitnesstracker.user.api.User;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 @Entity
 @Table(name = "statistics")
 @Getter
@@ -29,4 +30,46 @@ public class Statistics {
     @Column(name = "total_calories_burned")
     private int totalCaloriesBurned;
 
+    public Statistics(
+            final User user,
+            final int totalTrainings,
+            final double totalDistance,
+            final int totalCaloriesBurned) {
+
+        this.user = user;
+        this.totalTrainings = totalTrainings;
+        this.totalDistance = totalDistance;
+        this.totalCaloriesBurned = totalCaloriesBurned;
+    }
+
+    public Statistics(
+            final int totalTrainings,
+            final double totalDistance,
+            final int totalCaloriesBurned) {
+
+        this.totalTrainings = totalTrainings;
+        this.totalDistance = totalDistance;
+        this.totalCaloriesBurned = totalCaloriesBurned;
+    }
+
+    public void update(
+            final User user,
+            final int totalTrainings,
+            final double totalDistance,
+            final int totalCaloriesBurned) {
+
+        if (user != null) {
+            this.user = user;
+        }
+
+        if (totalTrainings > 0) {
+            this.totalTrainings = totalTrainings;
+        }
+        if (totalDistance > 0) {
+            this.totalDistance = totalDistance;
+        }
+        if (totalCaloriesBurned > 0) {
+            this.totalCaloriesBurned = totalCaloriesBurned;
+        }
+    }
 }

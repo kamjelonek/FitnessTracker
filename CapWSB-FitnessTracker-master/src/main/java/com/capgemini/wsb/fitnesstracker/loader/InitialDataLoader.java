@@ -3,6 +3,7 @@ package com.capgemini.wsb.fitnesstracker.loader;
 import com.capgemini.wsb.fitnesstracker.training.api.Training;
 import com.capgemini.wsb.fitnesstracker.training.internal.ActivityType;
 import com.capgemini.wsb.fitnesstracker.user.api.User;
+import com.capgemini.wsb.fitnesstracker.statistics.api.Statistics;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,10 @@ class InitialDataLoader {
     @Autowired
     private JpaRepository<Training, Long> trainingRepository;
 
+    @Autowired
+    private JpaRepository<Statistics, Long> statisticsRepository;
+
+
     @EventListener
     @Transactional
     @SuppressWarnings({"squid:S1854", "squid:S1481", "squid:S1192", "unused"})
@@ -47,6 +52,7 @@ class InitialDataLoader {
 
         List<User> sampleUserList = generateSampleUsers();
         List<Training> sampleTrainingList = generateTrainingData(sampleUserList);
+        List<Statistics> sampleStatisticsList = generateStatisticsData(sampleUserList);
 
 
         log.info("Finished loading initial data");
@@ -73,6 +79,8 @@ class InitialDataLoader {
         users.add(generateUser("Noah", "Miller", 39));
         users.add(generateUser("Grace", "Anderson", 33));
         users.add(generateUser("Oliver", "Swift", 29));
+
+        users.add(generateUser("Zenen", "Zenonowicz", 22));
 
         return users;
     }
@@ -144,6 +152,28 @@ class InitialDataLoader {
                                                11.8,
                                                8.5);
 
+            Training training11 = new Training(users.get(9),
+                                               sdf.parse("2024-01-10 14:00:00"),
+                                               sdf.parse("2024-01-10 15:15:00"),
+                                               ActivityType.RUNNING,
+                                               11.8,
+                                               8.5);
+
+            Training training12 = new Training(users.get(9),
+                                               sdf.parse("2024-02-10 14:00:00"),
+                                               sdf.parse("2024-02-10 16:15:00"),
+                                               ActivityType.WALKING,
+                                               11.0,
+                                               5.5);
+
+            Training training13 = new Training(users.get(9),
+                                               sdf.parse("2024-03-10 14:00:00"),
+                                               sdf.parse("2024-03-10 14:45:00"),
+                                               ActivityType.CYCLING,
+                                               22.8,
+                                               28.5);
+
+
             trainingData.add(training1);
             trainingData.add(training2);
             trainingData.add(training3);
@@ -154,6 +184,9 @@ class InitialDataLoader {
             trainingData.add(training8);
             trainingData.add(training9);
             trainingData.add(training10);
+            trainingData.add(training11);
+            trainingData.add(training12);
+            trainingData.add(training13);
 
             trainingData.forEach(training -> trainingRepository.save(training));
         } catch (ParseException e) {
@@ -162,6 +195,89 @@ class InitialDataLoader {
 
         return trainingData;
     }
+
+
+
+
+    private List<Statistics> generateStatisticsData(List<User> users) {
+        List<Statistics> statisticsData = new ArrayList<>();
+
+        Statistics statistics1 = new Statistics(users.get(0),
+                1,
+                10.5,
+                800);
+        Statistics statistics2 = new Statistics(users.get(1),
+                1,
+                25.0,
+                1805);
+        Statistics statistics3 = new Statistics(users.get(2),
+                1,
+                5.2,
+                508);
+        Statistics statistics4 = new Statistics(users.get(3),
+                1,
+                12.3,
+                900);
+        Statistics statistics5 = new Statistics(users.get(4),
+                1,
+                18.7,
+                1503);
+        Statistics statistics6 = new Statistics(users.get(5),
+                1,
+                3.5,
+                400);
+        Statistics statistics7 = new Statistics(users.get(6),
+                1,
+                15.0,
+                1008);
+        Statistics statistics8 = new Statistics(users.get(7),
+                1,
+                22.5,
+                1702);
+        Statistics statistics9 = new Statistics(users.get(8),
+                1,
+                4.2,
+                405);
+        Statistics statistics10 = new Statistics(users.get(9),
+                4,
+                46.8,
+                11805);
+
+        Statistics statistics11 = new Statistics(users.get(9),
+                1,
+                0.8,
+                105);
+
+        Statistics statistics12 = new Statistics(null,10,20,30);
+        Statistics statistics13 = new Statistics(100,200,300);
+
+        statisticsData.add(statistics1);
+        statisticsData.add(statistics2);
+        statisticsData.add(statistics3);
+        statisticsData.add(statistics4);
+        statisticsData.add(statistics5);
+        statisticsData.add(statistics6);
+        statisticsData.add(statistics7);
+        statisticsData.add(statistics8);
+        statisticsData.add(statistics9);
+        statisticsData.add(statistics10);
+
+        statisticsData.add(statistics11);
+        statisticsData.add(statistics12);
+        statisticsData.add(statistics13);
+
+        statisticsData.forEach(statistics -> statisticsRepository.save(statistics));
+
+        statistics12.update(null,1,2,3);
+        statistics13.update(null,3,2,1);
+
+
+        return statisticsData;
+    }
+
+
+
+
     private void verifyDependenciesAutowired() {
         if (isNull(userRepository)) {
             throw new IllegalStateException("Initial data loader was not autowired correctly " + this);

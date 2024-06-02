@@ -16,7 +16,7 @@ Jako pracownik projektu, chcę mieć możliwość wysłania wiadomości do użyt
 
 Stworzone API powinno pozwalać na:
 
-- [ ] wysłanie wiadomości email do użytkownika (i znajomych) o zakończonym treningu
+- [x] wysłanie wiadomości email do użytkownika (i znajomych) o zakończonym treningu
 - [ ] wysłana pracownikom wiadomość powinna zawierać informacje o: nadawcy(System), nazwie aktywnosci, długości trwania
   aktywności, dodatkowy tekst
 

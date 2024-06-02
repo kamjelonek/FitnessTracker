@@ -16,12 +16,12 @@ Jako użytkownik, chce mieć możliwość dostępu do panelu z treningami:
 
 Stworzone API powinno pozwalać na:
 
-- [ ] utworzenie nowego treningu
-- [ ] wyszukiwanie wszystkich treningów
-- [ ] wyszukiwanie treningów dla określonego Użytkownika:
-- [ ] wyszukiwanie wszystkich treningów zakończonych (po konkretnej zdefiniowanej dacie)
-- [ ] wyszukiwanie wszystkich treningów dla konkretnej aktywności (np. wszystkie treningi biegowe)
-- [ ] aktualizacja treningu (dowolnie wybrane pole np. dystans)
+- [x] utworzenie nowego treningu
+- [x] wyszukiwanie wszystkich treningów
+- [x] wyszukiwanie treningów dla określonego Użytkownika:
+- [x] wyszukiwanie wszystkich treningów zakończonych (po konkretnej zdefiniowanej dacie)
+- [x] wyszukiwanie wszystkich treningów dla konkretnej aktywności (np. wszystkie treningi biegowe)
+- [x] aktualizacja treningu (dowolnie wybrane pole np. dystans)
 
 ### Wymagania techniczne
 
@@ -48,15 +48,15 @@ Stworzone API powinno pozwalać na:
 
 Stworzone API powinno pozwalać na:
 
-- [ ] wylistowanie podstawowych informacji o wszystkich statystykach zapisanych w systemie
-- [ ] utworzenie nowych statystyk
-- [ ] aktualizacja Statystyk Użytkownika implementacja funkcjonalności do aktualizacji istniejących statystyk dla
+- [x] wylistowanie podstawowych informacji o wszystkich statystykach zapisanych w systemie
+- [x] utworzenie nowych statystyk
+- [x] aktualizacja Statystyk Użytkownika implementacja funkcjonalności do aktualizacji istniejących statystyk dla
   użytkownika.
-- [ ] pobranie szczegółów dotyczących statystyk dla danego użytkownika
-- [ ] usunięcie statystyk
-- [ ] wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane
+- [x] pobranie szczegółów dotyczących statystyk dla danego użytkownika
+- [x] usunięcie statystyk
+- [x] wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane
   tylko ID oraz e-mail użytkowników)
-- [ ] wyszukiwanie użytkowników po wieku starszym niż zdefiniowany
+- [x] wyszukiwanie użytkowników po wieku starszym niż zdefiniowany
 
 ### Wymagania techniczne
 
@@ -84,11 +84,11 @@ Jako pracownik utrzymania, chcę mieć możliwość kontroli wykonania się kodu
 
 ### Wymagania funkcjonalne
 
-- [ ] być uruchomiony podczas wywoływania metod publicznych serwisów (klas adnotowanych `@Service`)
-- [ ] przed wywołaniem metody logować o niej informację w
+- [x] być uruchomiony podczas wywoływania metod publicznych serwisów (klas adnotowanych `@Service`)
+- [x] przed wywołaniem metody logować o niej informację w
   formacie (`typ zwracany nazwaKlasy.nazwaMetody(typParametru1 nazwaParametru1, ...)`),
   np. `void MyService.myMethod(String param1, Boolean param2)`
-- [ ] po wywołaniu metody logować informację o metodzie (w tym samym formacie co przed wywołaniem) wraz z informacją na
+- [x] po wywołaniu metody logować informację o metodzie (w tym samym formacie co przed wywołaniem) wraz z informacją na
   temat zwróconej wartości (wystarczy jej toString())
 
 ### Wymagania techniczne
